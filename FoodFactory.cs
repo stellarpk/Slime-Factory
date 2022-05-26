@@ -69,7 +69,7 @@ public class FoodFactory : Facility
         ffSlimeNum.text = currentSlimeNum.ToString() + " / " + maxWorkSlime.ToString();
     }
 
-    // Ã¼·Â ³»¸²Â÷¼ø
+    // ì²´ë ¥ ë‚´ë¦¼ì°¨ìˆœ
     public void SortByHpDown()
     {
         slimeList.Sort(delegate (Slime slime1, Slime slime2)
@@ -119,7 +119,7 @@ public class FoodFactory : Facility
     {
         base.DisplayUpgrade(level, maxLevel, maxWorkSlime, plusSlime, generateTime, generateMount, upgradeCost);
         
-        maxFoodNum.text = "ÃÖ´ë ½Ä·® " + GameManager.instance.energyManager.maxFood.ToString();
+        maxFoodNum.text = "ÃƒÃ–Â´Ã« Â½Ã„Â·Â® " + GameManager.instance.energyManager.maxFood.ToString();
         plusFoodText.text = " + "+plusMaxFood.ToString();
     }
 
