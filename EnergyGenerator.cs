@@ -64,7 +64,7 @@ public class EnergyGenerator : Facility
         egSlimeNum.text = currentSlimeNum.ToString() + " / " + maxWorkSlime.ToString();
     }
 
-    // Ã¼·Â ³»¸²Â÷¼ø
+    // ì²´ë ¥ ë‚´ë¦¼ì°¨ìˆœ
     public void SortByHpDown()
     {
         slimeList.Sort(delegate (Slime slime1, Slime slime2)
