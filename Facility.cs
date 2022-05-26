@@ -22,10 +22,10 @@ public class Facility : MonoBehaviour
     public Transform[] portalPos;
     public Transform CenterPos;
 
-    protected int level; // °Ç¹° ·¹º§
+    protected int level; // ê±´ë¬¼ ë ˆë²¨
     protected int maxLevel;
-    public int maxWorkSlime; // ÇöÀç ÀÏÇÏ´Â ÀÎ·Â ¼ö
-    public int currentSlimeNum; // ÃÖ´ë ÀÏÇÏ´Â ÀÎ·Â ¼ö
+    public int maxWorkSlime; // í˜„ì¬ ì¼í•˜ëŠ” ì¸ë ¥ ìˆ˜
+    public int currentSlimeNum; // ìµœëŒ€ ì¼í•˜ëŠ” ì¸ë ¥ ìˆ˜
 
     public SelectGameDifficulty GameDifficulty;
 
@@ -34,10 +34,10 @@ public class Facility : MonoBehaviour
     protected int upgradeCost;
     protected int plusSlime;
 
-    public float generateTime; // »ı»ê ÁÖ±â
+    public float generateTime; // ìƒì‚° ì£¼ê¸°
     public List<Slime> slimeList;
     public List<Slime> generate;
-    public int generateMount; // »ı»ê·®
+    public int generateMount; // ìƒì‚°ëŸ‰
 
     public int index;
 
@@ -63,16 +63,16 @@ public class Facility : MonoBehaviour
         maxLevel = 10;
     }
 
-    // ¸®½ºÆ®¿¡¼­ Á¦°Å
+    // ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°
     public void MoveSlime(Slime slime, Destination destination, int start)
     {
         GameManager.instance.facilityList[start].slimeList.Remove(slime);
         GameManager.instance.facilityList[0].MoveSlime(slime, destination, delay);
-        // UI °»½Å
+        // UI ê°±ì‹ 
     }
 
 
-    // ÀÌµ¿½Ã¼³¿¡¼­ »ç¿ë
+    // ì´ë™ì‹œì„¤ì—ì„œ ì‚¬ìš©
     public void MoveSlime(Slime slime, Destination destination, float moveTime)
     {
         StartCoroutine(Moving(slime, destination, moveTime));
@@ -116,23 +116,23 @@ public class Facility : MonoBehaviour
         }
     }
 
-    // ¸®½ºÆ® Ãß°¡
+    // ë¦¬ìŠ¤íŠ¸ ì¶”ê°€
     public void RecieveSlime(Slime slime)
     {
         slimeList.Add(slime);
-        // UI °»½Å
+        // UI ê°±ì‹ 
     }
 
     public void DisplayUpgrade(int level, int maxLevel, int maxWorkSlime, int plusSlime, float generateTime, int generateMount, int upgradeCost)
     {
         levelText.text = level.ToString() + " / " + maxLevel.ToString();
-        maxSlimeText.text = "ÃÖ´ë ÀÏ²Û ¼ö " + maxWorkSlime.ToString();
+        maxSlimeText.text = "ìµœëŒ€ ì¼ê¾¼ ìˆ˜ " + maxWorkSlime.ToString();
         plusSlimeText.text = " + " + plusSlime.ToString();
-        generateRateText.text = generateTime.ToString() + "ÃÊ¿¡ ÀÎ·Â´ç " + generateMount.ToString() + "»ı»ê";
+        generateRateText.text = generateTime.ToString() + "ì´ˆì— ì¸ë ¥ë‹¹ " + generateMount.ToString() + "ìƒì‚°";
         upgradeCostText.text = upgradeCost.ToString();
         if (level >= maxLevel)
         {
-            upgradeCostText.text = "¾÷±×·¹ÀÌµå ¿Ï·á";
+            upgradeCostText.text = "ì—…ê·¸ë ˆì´ë“œ ì™„ë£Œ";
         }
     }
 
@@ -220,7 +220,7 @@ public class Facility : MonoBehaviour
         }
     }
 
-    // »ı»ê·® ÅØ½ºÆ® Ç¥½Ã
+    // ìƒì‚°ëŸ‰ í…ìŠ¤íŠ¸ í‘œì‹œ
     public void DisplayGenerated(GameObject generateTxt, Destination destination)
     {
         
@@ -269,16 +269,13 @@ public class Facility : MonoBehaviour
 
     public void LimitSpawnSlime()
     {
-        // »ı¼º°¡´ÉÇÑ ÀÏ²Û ¼ö
+        // ìƒì„±ê°€ëŠ¥í•œ ì¼ê¾¼ ìˆ˜
         int limitedSlime = GameManager.instance.maxSlimeNum - GameManager.instance.currentSlimeNum;
-        // ³²Àº ¿ë·®ÀÌ 0 ÀÌ»óÀÏ¶§
+        // ë‚¨ì€ ìš©ëŸ‰ì´ 0 ì´ìƒì¼ë•Œ
         if (limitedSlime > 0)
         {
             over = false;
         }
-        // ÇöÀç ½½¶óÀÓ ¼ö°¡ ÃÖ´ë ½½¶óÀÓ¼ö¸¦ ÃÊ°ú ÇßÀ» ¶§
-        // ÃÊ°úºĞ¸¸ »èÁ¦
-        // »ı¼º µµÁß ÀÏ²ÛÀÌ ¹Í¼­±â¿¡¼­ »ç¸Á½Ã ÃÊ°úÇØ¹ö¸®´Â °æ¿ì »ı±è.
 
         else
         {
