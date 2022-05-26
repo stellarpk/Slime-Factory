@@ -86,7 +86,7 @@ public class SpawnSlime : Facility
         });
     }
 
-    // 체력 내림차순
+    // 泥대젰 
     public void SortByHpDown()
     {
         slimeList.Sort(delegate (Slime slime1, Slime slime2)
